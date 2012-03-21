@@ -14,6 +14,11 @@ public class EnvConfigProperty {
 	public Vector<String> ivy;
 	public boolean isNeedtoResolve;
 	
+	public String baselineVersionNew;
+	public String baselineVersionOld;
+	public String infVersionNew;
+	public String infVersionOld;
+	
 	public  EnvConfigProperty(){
 		ivy = new Vector<String>();
 	}

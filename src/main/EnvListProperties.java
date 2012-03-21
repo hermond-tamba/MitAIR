@@ -36,26 +36,44 @@ public class EnvListProperties {
 			ecp.ivysettting = properties.getProperty("i" + i + "_ivysettting");
 			ecp.ivyproperties = properties.getProperty("i" + i + "_ivyproperties");
 
+			IvyProperties ipOld = null;
+			IvyProperties ipNew = null;
 			try{
-				IvyProperties ipOld = new IvyProperties(ecp.ivyproperties);
-				IvyProperties ipNew = new IvyProperties(ecp.tester_ivysettting,ecp.tester_ivyproperties);
-				ecp.isNeedtoResolve = isNeedToResolve(ipOld,ipNew);
+				 ipOld = new IvyProperties(ecp.ivyproperties);
+			}catch(Exception e){
+				ipOld = new IvyProperties("","");
+				ecp.isNeedtoResolve = true;
+			}
 
-
+			try{		
+				 ipNew = new IvyProperties(ecp.tester_ivysettting,ecp.tester_ivy,ecp.tester_module);
 			}catch(Exception e){
 				ecp.isNeedtoResolve = true;
 			}
+				
+				ecp.baselineVersionNew = ipNew.baselineVer;
+				ecp.infVersionNew = ipNew.infrastructureVer;
+				ecp.isNeedtoResolve = isNeedToResolve(ipOld,ipNew);
+
+				try{		
+					if(ecp.isNeedtoResolve) ipNew.doWriteFile(ecp.ivyproperties);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+				
+				
+
 			
 			int j = 0;
 			String ivyfname = properties.getProperty("i" + i + "_ivy_" + j);
 			while(ivyfname!=null){
 				ecp.ivy.add(ivyfname);
-				j = j++;
+				j = j+1;
 				ivyfname = properties.getProperty("i" + i + "_ivy_" + j);
 			}
 
 			vecECP.add(ecp);			
-			i = i++;
+			i = i+1;
 			ecp = new EnvConfigProperty();
 			ecp.envName = properties.getProperty("i" + i + "_envName");
 		}

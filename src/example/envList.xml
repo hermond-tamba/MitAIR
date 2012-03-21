@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <comment>Applications Configuration</comment>
+    <!--DEV-->
+    <entry key="i0_envName">dev</entry>
+    <entry key="i0_tester_ivysettting">E:\MitAIR\dev\tester\tester.ivysettings.xml</entry>
+    <entry key="i0_tester_ivyproperties">E:\MitAIR\dev\tester\ivytester.properties</entry>    
+    <entry key="i0_tester_ivy">E:\MitAIR\dev\tester\ivy_tester.xml</entry>
+    <entry key="i0_tester_module">RIAInfrastructureEllipse</entry>
+    <entry key="i0_ivysettting">E:\MitAIR\dev\ivy-setting.xml</entry>
+    <entry key="i0_ivyproperties">E:\MitAIR\dev\ivy.properties</entry>    
+    <entry key="i0_ivy_0">C:\git-clones\ellipse\el_batchtest\ivy.xml</entry>
+    <entry key="i0_ivy_1">C:\git-clones\ellipse\el_jsc\jsc\plugins\ivy.xml</entry>
+    <entry key="i0_ivy_2">C:\git-clones\ellipse\el_cobol\ivy.xml</entry>
+    <entry key="i0_ivy_3">C:\git-clones\ellipse\el_jsc\jsc\ServiceEAR\ivy.xml</entry>
+
+    <!--8.2_sup-->
+    <entry key="i1_envName">8.2_sup</entry>
+    <entry key="i1_tester_ivysettting">E:\MitAIR\8.2_sup\tester\tester.ivysettings.xml</entry>
+    <entry key="i1_tester_ivyproperties">E:\MitAIR\8.2_sup\tester\ivytester.properties</entry>    
+    <entry key="i1_tester_ivy">E:\MitAIR\8.2_sup\tester\ivy_tester.xml</entry>
+    <entry key="i1_tester_module">RIAInfrastructureEllipse</entry>
+    <entry key="i1_ivysettting">E:\MitAIR\8.2_sup\ivy-setting.xml</entry>
+    <entry key="i1_ivyproperties">E:\MitAIR\8.2_sup\ivy.properties</entry>    
+    <entry key="i1_ivy_0">C:\git-clones\ellipse\el_batchtest\ivy.xml</entry>
+    <entry key="i1_ivy_1">C:\git-clones\ellipse\el_jsc\jsc\plugins\ivy.xml</entry>
+    <entry key="i1_ivy_2">C:\git-clones\ellipse\el_cobol\ivy.xml</entry>
+    <entry key="i1_ivy_3">C:\git-clones\ellipse\el_jsc\jsc\ServiceEAR\ivy.xml</entry>
+
+</properties>

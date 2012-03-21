@@ -1,0 +1,38 @@
+<ivysettings>
+    <property name="ivy.default.resolver" value="all"/>
+    <properties file="ivytester.properties" />
+    <settings defaultResolver="${ivy.default.resolver}"/>
+    <property name="ivy.build.default.root" value="http://devivyhome.mincom.oz.au/nexus/content" override="false"/>
+    <property name="ivy.build.default.public" value="${ivy.build.default.root}/groups/public" override="false"/>
+    <property name="ivy.build.default.workplanner" value="${ivy.build.default.root}/repositories/WorkPlanner" override="false"/>
+    <property name="ivy.build.default.releases_ji" value="${ivy.build.default.root}/repositories/releases_ji" override="false"/>
+    <property name="ivy.build.default.releases" value="${ivy.build.default.root}/repositories/snapshots" override="false"/>
+    <property name="ivy.build.default.pattern" value="[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]" override="false"/>
+
+    <resolvers>
+        <ibiblio name="mincom-public" m2compatible="true" root="${ivy.build.default.public}" />
+        <url name="mincom-ivy" m2compatible="true"> 
+            <ivy pattern="${ivy.build.default.releases}/${ivy.build.default.pattern}" />
+            <artifact pattern="${ivy.build.default.releases}/${ivy.build.default.pattern}" />
+        </url>
+        <url name="releases_ji" m2compatible="true"> 
+            <ivy pattern="${ivy.build.default.releases_ji}/${ivy.build.default.pattern}" />
+            <artifact pattern="${ivy.build.default.releases_ji}/${ivy.build.default.pattern}" />
+        </url>
+        <url name="workplanner" m2compatible="true"> 
+            <ivy pattern="${ivy.build.default.workplanner}/${ivy.build.default.pattern}" />
+            <artifact pattern="${ivy.build.default.workplanner}/${ivy.build.default.pattern}" />
+        </url>
+        <chain name="all" returnFirst="true" dual="true">
+            <resolver ref="releases_ji" />
+            <resolver ref="mincom-ivy" />
+            <resolver ref="mincom-public" />
+        </chain>
+        <chain name="all_workplanner" returnFirst="true" dual="true">
+            <resolver ref="workplanner" />
+            <resolver ref="releases_ji" />
+            <resolver ref="mincom-ivy" />
+            <resolver ref="mincom-public" />
+        </chain>
+    </resolvers>
+</ivysettings>

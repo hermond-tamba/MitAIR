@@ -23,3 +23,5 @@ Importing a Subversion Repo?
       
 When you're done:
   Continue
+
+Note please check Windows --> preferences --> General Network! need to be Active provider = manual and provide isa client, and your mitrais credential before resolve ivy from eclipse.

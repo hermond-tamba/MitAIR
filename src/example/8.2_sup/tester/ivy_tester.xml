@@ -1,0 +1,15 @@
+<ivy-module version="2.0">
+  <info organisation="mincom" module="ServiceEar" />
+  <configurations>
+    <conf name="ellipsej" />
+  </configurations>
+  <publications>
+    <artifact />
+  </publications>
+  <dependencies>
+    <dependency org="mincom" name="RIAInfrastructureEllipse" rev="${infrastructure.version}" conf="ellipsej" />
+    <dependency org="mincom" name="edoi-properties" rev="${baseline.version}" conf="ellipsej" />
+    
+    <exclude module="*" matcher="regexp" />
+  </dependencies>
+</ivy-module>

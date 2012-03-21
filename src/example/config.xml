@@ -3,10 +3,10 @@
 <properties>
   <comment>Applications Configuration</comment>
     <!--email section-->
-    <entry key="email_to">MitraisMP@mitrais.com</entry>
+    <entry key="email_to">wendra.arinegara@mitrais.com</entry>
     <entry key="email_from">MitraisMP@mitrais.com</entry>
     <entry key="email_host">exchange2007.mitrais.com</entry>
-    <entry key="email_template">D:\App\Data\templateXXXX.txt</entry>
+    <entry key="email_template">E:\MitAIR\emailTemplate.txt</entry>
     <entry key="email_subject">AURORA - Mitrais Nexus Environment Update</entry>
 
     <!--app runtime section-->
@@ -15,6 +15,6 @@
     <entry key="app_delay">1800000</entry> <!--30 mins-->
     <entry key="app_isemailrequired">true</entry>
     <entry key="app_run24hrs">false</entry>
-    <entry key="app_envlist">D:\kerjoan\Source\Belajar\src\test\envlist.txt</entry>    
+    <entry key="app_envlist">E:\MitAIR\envList.xml</entry>    
 
 </properties>
