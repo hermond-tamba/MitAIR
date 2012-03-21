@@ -1,0 +1,25 @@
+Global setup:
+ Set up git
+  git config --global user.name "Wendra Arinegara"
+  git config --global user.email wendra.arinegara@mitrais.com
+      
+Next steps:
+  mkdir MitAIR
+  cd MitAIR
+  git init
+  touch README
+  git add README
+  git commit -m 'first commit'
+  git remote add origin git@github.com:Mitrais/MitAIR.git
+  git push -u origin master
+      
+Existing Git Repo?
+  cd existing_git_repo
+  git remote add origin git@github.com:Mitrais/MitAIR.git
+  git push -u origin master
+      
+Importing a Subversion Repo?
+  Click here
+      
+When you're done:
+  Continue
