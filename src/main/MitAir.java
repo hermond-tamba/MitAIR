@@ -3,7 +3,6 @@ package main;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -13,10 +12,8 @@ import java.util.GregorianCalendar;
 import java.util.Properties;
 
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -39,12 +36,15 @@ public class MitAir {
 				if(air.isOKToRun()){
 					air.doProcess();
 					emailDetail =  air.emailDetail;
+					System.out.println("==email detail==\n"+emailDetail+"===");
+					System.out.println("Sleeping for " + apc.app_delay + " ms");
 					Thread.sleep(apc.app_delay);
 				}else{
-					if(apc.app_isemailrequired){
+					if(apc.app_isemailrequired && !emailDetail.trim().equalsIgnoreCase("")){
 						air.doSendEmail();
 						emailDetail = "";
 					}
+					System.out.println("Sleeping until" + apc.app_starttime);
 					Thread.sleep(air.timeToWakeUp());
 				}
 			}
@@ -79,7 +79,7 @@ public class MitAir {
 				}
 			}//end for j
 			if(isSomethingDownloaded){
-				emailDetail = emailDetail + ecp.envName + ": \t" + "baseline.version=" + ecp.baselineVersionNew + "\t" + "infrastructure.version=" + ecp.infVersionNew + "(" + formatter.format(new Date()) + ")\n";
+				emailDetail = emailDetail + ecp.envName + ": \t" + "baseline.version=" + ecp.baselineVersionNew + "\t" + "infrastructure.version=" + ecp.infVersionNew + " (" + formatter.format(new Date()) + ")\n";
 			}
 			
 		}//end for i
@@ -114,13 +114,25 @@ public class MitAir {
 		Date dt1 = dateFromHourMinSec(apc.app_starttime);
 		Date dt2 = dateFromHourMinSec(apc.app_stoptime);
 		
-		return !isNowBetweenDateTime(dt2,dt1);
+		if(dt1.getTime()==dt2.getTime()) return true;
+		if(dt1.getTime()>dt2.getTime()) return !isNowBetweenDateTime(dt1,dt2);
+		
+		return isNowBetweenDateTime(dt1,dt2);
 	}
 	
 	public long timeToWakeUp(){
 		Date now = new Date();
-		Date dt2 = dateFromHourMinSec(apc.app_stoptime);
-		return dt2.getTime()-now.getTime();
+		Date dt1 = dateFromHourMinSec(apc.app_starttime);
+		//Date dt2 = dateFromHourMinSec(apc.app_stoptime);
+		
+		if(now.before(dt1)) return dt1.getTime()-now.getTime();
+		
+		Calendar c = Calendar.getInstance();
+
+		c.setTime(dt1);
+		c.add(Calendar.DATE, 1);  // number of days to add
+		dt1 = c.getTime();
+		return dt1.getTime()-now.getTime();
 	}
 	
 	public void doSendEmail() throws Exception{

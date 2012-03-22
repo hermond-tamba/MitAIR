@@ -3,8 +3,8 @@
 <properties>
   <comment>Applications Configuration</comment>
     <!--email section-->
-    <entry key="email_to">wendra.arinegara@mitrais.com</entry>
-    <entry key="email_from">MitraisMP@mitrais.com</entry>
+    <entry key="email_to">MitraisMP@mitrais.com</entry>
+    <entry key="email_from">MitraisMP-Noreply@mitrais.com</entry>
     <entry key="email_host">exchange2007.mitrais.com</entry>
     <entry key="email_template">E:\MitAIR\emailTemplate.txt</entry>
     <entry key="email_subject">AURORA - Mitrais Nexus Environment Update</entry>

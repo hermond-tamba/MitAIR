@@ -54,6 +54,11 @@ public class EnvListProperties {
 				ecp.baselineVersionNew = ipNew.baselineVer;
 				ecp.infVersionNew = ipNew.infrastructureVer;
 				ecp.isNeedtoResolve = isNeedToResolve(ipOld,ipNew);
+				if(ecp.isNeedtoResolve){
+					System.out.println("Need to resolve " + ecp.envName);
+				}else{
+					System.out.println("No need to resolve " + ecp.envName);
+				}
 
 				try{		
 					if(ecp.isNeedtoResolve) ipNew.doWriteFile(ecp.ivyproperties);

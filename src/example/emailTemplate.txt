@@ -1,22 +1,21 @@
-tetstestestestestetes
+Mitrais Auto Ivy Resolver (MitAIR)
 
-testes
-
-teste
-s
-
-
-
-teststes
+Mitrais Nexus has been updated as following :
 
 
 ====EMAIL DETAIL HERE===
 
 
-fewfew
-f
-ewf
-ew
-few
-f
-ewf
+
+Developer should use setting file from :
+- Ivy properties : Original ivy.properties from GIT clone
+- Ivy setting    : M:\\mp\\Ellipse8\\ivy\\ivysettings.mitrais.xml
+
+
+Usefull documentation can be found on Software Development -> Mincom Practice -> Ellipse Cook Books -> Ellipse Technical -> Environment
+
+
+This application source code can be obtained from git@github.com:Mitrais/MitAIR.git
+
+
+"Rahajeng Nyangra Rahina Nyepi tahun Baru Caka 1934"
