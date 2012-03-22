@@ -115,7 +115,7 @@ public class MitAir {
 		Date dt2 = dateFromHourMinSec(apc.app_stoptime);
 		
 		if(dt1.getTime()==dt2.getTime()) return true;
-		if(dt1.getTime()>dt2.getTime()) return !isNowBetweenDateTime(dt1,dt2);
+		if(dt1.getTime()>dt2.getTime()) return !isNowBetweenDateTime(dt2,dt1);
 		
 		return isNowBetweenDateTime(dt1,dt2);
 	}
