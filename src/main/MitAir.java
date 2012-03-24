@@ -70,7 +70,7 @@ public class MitAir {
 	
 	public void doProcess(){
 		boolean isSomethingDownloaded = false;
-		DateFormat formatter = new SimpleDateFormat("dd MMMM yyyy hh:mm:ss");
+		DateFormat formatter = new SimpleDateFormat("dd MMMM yyyy HH:mm:ss");
 		for(int i=0;i<elp.vecECP.size();i++){
 			EnvConfigProperty ecp = elp.vecECP.get(i);
 			if(!ecp.isNeedtoResolve) continue;
